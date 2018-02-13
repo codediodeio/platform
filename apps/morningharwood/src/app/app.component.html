@@ -1,1 +1,4 @@
 <router-outlet></router-outlet>
+
+
+<div *ngFor="let note of notes | async"> {{note | json}}</div>
