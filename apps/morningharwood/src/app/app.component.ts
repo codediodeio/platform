@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { HigherOrderFirestoreService } from './firestore/services/ho-firestore.service';
 
+
+interface Note {
+  content: string;
+  size: string;
+}
 
 @Component({
   selector: 'mh-root',
@@ -7,7 +15,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  private notesCollection: AngularFirestoreCollection<any>;
+  // public notes: Observable<any[]>;
+  public ref: AngularFirestoreCollection<Note>;
+  public notes: Observable<Note[]>;
 
-  ngOnInit() {}
+  constructor(private afs: AngularFirestore, private hoAfs: HigherOrderFirestoreService) {}
+
+  ngOnInit() {
+    // this.notesCollection = this.afs.collection('notes');
+    // this.notes = this.notesCollection.valueChanges();
+    console.log(this.hoAfs.inspectCol('notes'));
+
+  }
 }
