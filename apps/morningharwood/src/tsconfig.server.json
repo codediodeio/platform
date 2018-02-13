@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc/apps/morningharwood",
+    "module": "commonjs"
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "wallabyTest.ts"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "app/app.server.module#AppServerModule"
+  }
+}
