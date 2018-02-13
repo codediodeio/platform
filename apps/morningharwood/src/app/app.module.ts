@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NxModule } from '@nrwl/nx';
-import { aclRoleRoutes } from '@suite/acl-role';
+
 import { AppComponent } from './app.component';
 import { MhFirestoreClientModule } from './firestore/mh-client.module';
 
