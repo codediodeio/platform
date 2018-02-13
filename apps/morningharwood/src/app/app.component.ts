@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
@@ -9,6 +10,8 @@ interface Note {
   size: string;
 }
 
+const FACTS_URL = 'https://non-ssr-angular.firebaseio.com/facts.json';
+
 @Component({
   selector: 'mh-root',
   templateUrl: './app.component.html',
@@ -19,13 +22,16 @@ export class AppComponent implements OnInit {
   // public notes: Observable<any[]>;
   public ref: AngularFirestoreCollection<Note>;
   public notes: Observable<Note[]>;
+  public facts: Observable<any>;
 
-  constructor(private afs: AngularFirestore, private hoAfs: HigherOrderFirestoreService) {}
+  constructor(private http: HttpClient,
+              private hoAfs: HigherOrderFirestoreService) {}
 
   ngOnInit() {
     // this.notesCollection = this.afs.collection('notes');
     // this.notes = this.notesCollection.valueChanges();
     console.log(this.hoAfs.inspectCol('notes'));
+    this.facts = this.http.get(FACTS_URL);
 
   }
 }
