@@ -8,8 +8,6 @@ import { NxModule } from '@nrwl/nx';
 import { AppComponent } from './app.component';
 import { MhFirestoreClientModule } from './firestore/mh-client.module';
 
-
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -18,13 +16,9 @@ import { MhFirestoreClientModule } from './firestore/mh-client.module';
     BrowserModule.withServerTransition({ appId: 'morningharwood-ssr' }),
     NxModule.forRoot(),
     MhFirestoreClientModule.forRoot(),
-    RouterModule.forRoot(
-      [],
-      { initialNavigation: 'enabled' },
-    ),
+    RouterModule.forRoot([], { initialNavigation: 'enabled' })
   ],
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

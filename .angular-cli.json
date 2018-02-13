@@ -104,6 +104,12 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
+    },
+    {
+      "name": "functions",
+      "root": "libs/functions/src",
+      "test": "../../../test.js",
+      "appRoot": ""
     }
   ]
 }
