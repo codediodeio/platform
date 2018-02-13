@@ -11,8 +11,6 @@ img::selection {
   background: transparent;
 }
 
-
-
 html,
 body {
   @extend %reset-space;
@@ -33,8 +31,8 @@ html {
 }
 
 body {
-  -webkit-tap-highlight-color: transparentize($red-mh, .1);
   font-size: percentage(1/1);
+  -webkit-tap-highlight-color: transparentize($red-mh, .1);
 }
 
 .router-wrap {
