@@ -1,8 +1,8 @@
 {
   "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
   "project": {
-    "name": "platform",
-    "npmScope": "platform",
+    "name": "morningharwood",
+    "npmScope": "suite",
     "latestMigration": "20180130-angular-devkit-schematics"
   },
   "e2e": {
@@ -13,6 +13,22 @@
   "lint": [
     {
       "project": "./tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/morningharwood/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/morningharwood/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/morningharwood/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/morningharwood/e2e/tsconfig.e2e.json",
       "exclude": "**/node_modules/**"
     }
   ],
@@ -25,12 +41,50 @@
     "schematics": {
       "collection": "@nrwl/schematics",
       "postGenerate": "npm run format",
-      "newProject": ["app", "lib"]
+      "newProject": [
+        "app",
+        "lib"
+      ]
     },
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+      "changeDetection": "OnPush"
+    }
   },
   "warnings": {
     "typescriptMismatch": false
-  }
+  },
+  "apps": [
+    {
+      "name": "morningharwood",
+      "root": "apps/morningharwood/src",
+      "outDir": "dist/apps/morningharwood",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "acl-role",
+      "root": "libs/acl-role/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    }
+  ]
 }

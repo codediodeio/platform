@@ -6,6 +6,7 @@
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
+    "import-sources-order": true,
     "class-name": true,
     "forin": true,
     "deprecation": {
@@ -71,13 +72,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "mh",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "mh",
       "kebab-case"
     ],
     "no-output-on-prefix": true,
@@ -90,7 +91,6 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-
     "nx-enforce-module-boundaries": [
       true,
       {

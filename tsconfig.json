@@ -16,12 +16,13 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@platform/*": [
+      "@suite/*": [
         "libs/*"
       ]
     }
   },
   "exclude": [
+    "wallabyTest.ts",
     "node_modules",
     "tmp"
   ]
