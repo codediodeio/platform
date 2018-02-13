@@ -1,0 +1,69 @@
+@import './modularscale';
+
+$dark-black-mh: #333;
+$black-mh: #555;
+$gray-mh: #888;
+$gray-light-mh: #ccc;
+$red-mh: tomato;
+$default-text: $black-mh;
+$bold: 700;
+$default-bleed: 72 * 1px;
+$hi-number: 420 * 1px;
+$serif-font: 'Times New Roman', Times, serif;
+$fun-font: 'Comic Sans MS', cursive !important;
+$display-font-family: $serif-font;
+$sans-default-family: sans-serif;
+$blue-link: #0095dd;
+$white: #fff;
+$white-off: #f7f7f7;
+$gray-off: #dedede;
+
+//sepia
+$sepia-bg: #f4ecd8;
+$sepia-copy: #5b4636;
+$sepia-link: $blue-link;
+
+//dark
+$dark-bg: $dark-black-mh;
+$dark-copy: $gray-off;
+$dark-link: $blue-link;
+
+//light
+$light-bg: $white-off;
+$light-copy: $black-mh;
+$light-link: $blue-link;
+
+$modularscale: (
+  base: 1em,
+  ratio: $golden,
+  aug: (
+    ratio: $major-third
+  ),
+  minor-second: (
+    ratio: $minor-second
+  )
+);
+
+//$size-10: ms(-2, $thread: minor-second);
+$size-10: ms(-1);
+$size-12: ms(-1, $thread: minor-second);
+$size-19: ms(2, $thread: aug);
+$size-42: ms(2);
+$size-62: ms(3, $thread: aug);
+$size-72: ms(7, $thread: aug);
+
+// FONT SIZES
+$common-size-0: 16 * 1;
+$common-size-4: 72 * 1;
+$headline: ms(5, $thread: aug);
+$paragraph: ms(1);
+
+// z-index multipliers
+$primary: 1000;
+$secondary: 100;
+$tertiary: 10;
+
+$ui: 1000;
+$layer-1: 100;
+$layer-2: 10;
+

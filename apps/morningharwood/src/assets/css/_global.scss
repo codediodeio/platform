@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+@import 'extends';
+
+::selection {
+  background: $red-mh;
+  color: transparentize($white, 0);
+}
+
+img::selection {
+  background: transparent;
+}
+
+html,
+body {
+  @extend %reset-space;
+  @include size(percentage(1/1), percentage(1/1));
+
+  font-family: $serif-font;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  $size: 16px;
+  font-size: $size;
+
+  @include bp(4) {
+    font-size: calc(16px + .4vw);
+  }
+}
+
+body {
+  font-size: percentage(1/1);
+  -webkit-tap-highlight-color: transparentize($red-mh, .1);
+}
+
+.router-wrap {
+  min-height: percentage(1/1);
+  position: relative;
+  width: percentage(1/1);
+}
+
+.konami {
+  font-family: $fun-font;
+}

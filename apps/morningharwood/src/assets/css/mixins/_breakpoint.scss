@@ -1,0 +1,24 @@
+
+@mixin bp($type) {
+  @if $type == 1 {
+    @media #{'(min-width: 576px)'} {
+      @content;
+    }
+  } @else if $type == 2 {
+    @media #{'(min-width: 768px)'} {
+      @content;
+    }
+  } @else if $type == 3 {
+    @media #{'(min-width: 992px)'} {
+      @content;
+    }
+  } @else if $type == 4 {
+    @media #{'(min-width: 1200px)'} {
+      @content;
+    }
+  } @else if $type == 5 {
+    @media #{'(min-width: 1599px)'} {
+      @content;
+    }
+  }
+}

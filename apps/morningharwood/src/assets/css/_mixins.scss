@@ -1,0 +1,150 @@
+/**
+ *   body {
+ *     @include background-image('pattern');
+ *   }
+ */
+@import './mixins/grid';
+@import './mixins/images';
+@import './mixins/breakpoint';
+@import './mixins/responsive-text';
+
+$browser-context: 16; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin accessible-hide() {
+  left: -9999px !important;
+  position: absolute !important;
+  top: -9999px !important;
+}
+
+@mixin hide() {
+  display: none;
+  visibility: hidden;
+}
+
+@mixin show($display) {
+  display: $display;
+  visibility: visible;
+}
+
+@mixin center-flex() {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin color-filter-base($color) {
+  $local-bg: $white-off;
+  $local-copy: $black-mh;
+  $local-link: $blue-link;
+
+  &.#{$color}-filter {
+    @if $color == 'sepia' {
+      $local-bg: $sepia-bg;
+      $local-copy: $sepia-copy;
+      $local-link: $sepia-link;
+    } @else if $color == 'dark' {
+      $local-bg: $dark-bg;
+      $local-copy: $dark-copy;
+      $local-link: $dark-link;
+    } @else {
+      $local-bg: $light-bg;
+      $local-copy: $light-copy;
+      $local-link: $light-link;
+    }
+
+    background-color: $local-bg;
+    color: $local-copy;
+
+    a {
+      color: $local-link
+    }
+  }
+}
+
+/// Shorthand mixin for offset positioning
+/// @param {String} $position - Either `relative`, `absolute` or `fixed`
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $right [null] - Right offset
+/// @param {Length} $bottom [null] - Bottom offset
+/// @param {Length} $left [null] - Left offset
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $zIndex: null) {
+  @if $position != null {
+    position: $position;
+  }
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  top: $top;
+  z-index: $zIndex;
+}
+
+@mixin size(
+  $width: null,
+  $height: null,
+  $minWidth: null,
+  $minHeight: null,
+  $maxWidth: null,
+  $maxHeight: null) {
+
+  @if $height != null {
+    height: $height;
+  }
+
+  @if $maxHeight != null {
+    max-height: $maxHeight;
+  }
+
+  @if $maxWidth != null {
+    max-width: $maxWidth;
+  }
+
+  @if $minHeight != null {
+    min-height: $minHeight;
+  }
+
+  @if $minWidth != null {
+    min-width: $minWidth;
+  }
+
+  @if $width != null {
+    width: $width;
+  }
+}
+
+@mixin border($direction, $width, $style, $color) {
+  border-#{$direction}: $width $style $color;
+}
+
+
+
+@mixin space($type: m, $amount: 0, $direction: all) {
+  @if $type == p {
+    @if $direction == all {
+      padding: $amount;
+    } @else if $direction == top {
+      padding-top: $amount;
+    } @else if $direction == left {
+      padding-left: $amount;
+    } @else if $direction == right {
+      padding-right: $amount;
+    } @else {
+      padding-bottom: $amount;
+    }
+  } @else {
+    @if $direction == all {
+      margin: $amount;
+    } @else if $direction == top {
+      margin-top: $amount;
+    } @else if $direction == left {
+      margin-left: $amount;
+    } @else if $direction == right {
+      margin-right: $amount;
+    } @else {
+      margin-bottom: $amount;
+    }
+  }
+}
