@@ -1,0 +1,18 @@
+@import '../../../../assets/css/mixins';
+@import '../../../../assets/css/variables';
+
+.lock-bottom-right {
+  bottom: ms(0);
+  position: absolute;
+  right: ms(0);
+}
+
+.border-bottom {
+  border-bottom: solid ms(0) $black-mh;
+  padding: 0 0 3px;
+}
+
+.highlight {
+  color: $red-mh;
+  font-style: italic;
+}

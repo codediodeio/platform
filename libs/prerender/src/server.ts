@@ -4,7 +4,6 @@ import * as cors from 'cors';
 import * as express from 'express';
 import { ApplicationModule } from './app/app.module';
 
-
 function addMiddleware(instance): void {
   instance.use(bodyParser.json());
   instance.use(cors());

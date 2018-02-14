@@ -5,7 +5,6 @@ import 'zone.js/dist/zone-node';
 import { lsRoutes } from '../../lsroutes';
 import { AppBundleUtils } from './app-bundle-utils';
 
-
 export class Prerender {
   public static async print() {
     enableProdMode();
@@ -27,11 +26,11 @@ export class Prerender {
         const url = isEmptyPath(path);
         const doc = await renderModuleFactory(AppServerModuleNgFactory, {
           document,
-          url,
+          url
         });
 
         fse.writeFile(`${OUTPUT_DIR}${path}.html`, doc).then(() => console.log('done'));
-      }),
+      })
     );
   }
 }

@@ -1,0 +1,34 @@
+<ng-container [ngSwitch]="!!user?.email">
+  <ng-container *ngSwitchCase="false">
+    <p class="border-bottom">Please click below</p>
+    <div class="lock-bottom-right">
+      <button mat-raised-button>
+        Menu
+      </button>
+      <button mat-raised-button>
+        Admin
+      </button>
+      <button mat-raised-button
+
+              (click)="login()">
+        Login
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="true">
+    <p>Welcome back,<br> <span class="highlight">{{user?.email}}</span></p>
+    <div class="lock-bottom-right">
+      <button mat-raised-button>
+        Menu
+      </button>
+      <button mat-raised-button>
+        Admin
+      </button>
+      <button mat-raised-button
+              (click)="logout()">
+        Logout
+      </button>
+    </div>
+  </ng-container>
+</ng-container>
