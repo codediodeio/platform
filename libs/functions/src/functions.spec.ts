@@ -1,7 +1,8 @@
-import { Functions } from './functions';
+import { ssrapp } from './functions';
 
-describe('Functions', () => {
+
+describe('ssrapp', () => {
   it('should work', () => {
-    expect(new Functions()).toBeDefined();
+    expect(ssrapp).toBeTruthy();
   });
 });
