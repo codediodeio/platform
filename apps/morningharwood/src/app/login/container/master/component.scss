@@ -1,0 +1,19 @@
+@import '../../../../assets/css/mixins';
+@import '../../../../assets/css/variables';
+
+:host {
+  @include center-flex();
+  height: 100%;
+  width: 100%;
+}
+
+mat-card {
+  min-height: 400px;
+  min-width: 400px;
+  position: relative;
+}
+
+.border-bottom {
+  border-bottom: solid ms(0) $black-mh;
+  padding: 0 0 3px;
+}
