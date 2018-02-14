@@ -12,7 +12,6 @@ import { MhFirestoreClientModule } from './firestore/mh-client.module';
   imports: [
     BrowserAnimationsModule,
     CommonModule,
-    HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'morningharwood-ssr' }),
     NxModule.forRoot(),
     MhFirestoreClientModule.forRoot(),
