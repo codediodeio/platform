@@ -24,6 +24,7 @@
   "exclude": [
     "wallabyTest.ts",
     "node_modules",
-    "tmp"
+    "tmp",
+    "functions"
   ]
 }
