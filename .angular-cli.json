@@ -60,8 +60,20 @@
       "root": "apps/morningharwood/src",
       "outDir": "dist/apps/morningharwood",
       "assets": [
-        "assets",
-        "favicon.ico"
+        "assets/images",
+        "favicon.ico",
+        "apple-touch-icon.png",
+        "favicon-32x32.png",
+        "favicon-16x16.png",
+        "manifest.json",
+        "safari-pinned-tab.svg",
+        "humans.txt",
+        "license.txt",
+        "404.html",
+        "android-chrome-256x256.png",
+        "android-chrome-192x192.png",
+        "mstile-150x150.png",
+        "browserconfig.xml"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -79,6 +91,43 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
+    },
+    {
+      "name": "morningharwood-server",
+      "platform": "server",
+      "root": "apps/morningharwood/src",
+      "outDir": "functions/dist-server",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "lsroutes",
+      "root": "libs/lsroutes/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "prerender",
+      "root": "libs/prerender/src",
+      "test": "../../../test.js",
+      "appRoot": ""
     }
   ]
 }
