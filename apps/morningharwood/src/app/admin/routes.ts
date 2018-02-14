@@ -7,14 +7,14 @@ import { AdminContainerMasterComponent } from './container/master/component';
 export const config: Routes = [
   {
     path: 'admin',
-    canActivate: [ AdminGuard ],
+    canActivate: [AdminGuard],
     children: [
       {
         path: '',
-        component: AdminContainerMasterComponent,
-      },
-    ],
-  },
+        component: AdminContainerMasterComponent
+      }
+    ]
+  }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forChild(config);

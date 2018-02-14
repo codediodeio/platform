@@ -1,10 +1,7 @@
-import {
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '@suite/core';
 import { AuthService } from '@suite/core';
+import { StoreNavigateService } from '../../../router/service';
 
 
 @Component({
@@ -15,19 +12,19 @@ import { AuthService } from '@suite/core';
 export class UserCardComponent implements OnInit {
   @Input() public user: User;
 
-  constructor(public auth: AuthService) {
-  }
+  constructor(public auth: AuthService, private please: StoreNavigateService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public login() {
-    this.auth.googleLogin()
-      .then(console.log);
+    this.auth.googleLogin().then(console.log);
   }
 
   public logout() {
-    this.auth.googleLogout()
-      .then(console.log);
+    this.auth.googleLogout().then(console.log);
+  }
+
+  public go(path) {
+    this.please.go(path);
   }
 }

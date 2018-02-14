@@ -19,10 +19,10 @@
   <ng-container *ngSwitchCase="true">
     <p>Welcome back,<br> <span class="highlight">{{user?.email}}</span></p>
     <div class="lock-bottom-right">
-      <button mat-raised-button>
+      <button mat-raised-button (click)="go('menu')">
         Menu
       </button>
-      <button mat-raised-button>
+      <button mat-raised-button (click)="go('admin')">
         Admin
       </button>
       <button mat-raised-button

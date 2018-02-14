@@ -7,7 +7,6 @@ import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user.interface';
 
-
 @Injectable()
 export class AuthService {
   public user$: Observable<User>;
@@ -19,12 +18,12 @@ export class AuthService {
   public onInit(): void {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
-        if(user) {
+        if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return Observable.of(null);
         }
-      }),
+      })
     );
   }
 
@@ -48,42 +47,35 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       roles: {
-        subscriber: true,
-      },
+        subscriber: true
+      }
     };
 
     return userRef.set(data, { merge: true });
   }
 
   private checkAuthorization(user: User, allowedRoles: string[]): boolean {
-    if(!user) {
+    if (!user) {
       return false;
     }
-    return allowedRoles.some(role => user.roles[ role ]);
+    return allowedRoles.some(role => user.roles[role]);
   }
 
   // TODO Lock down Auth from serverside.
   // https://angularfirebase.com/lessons/role-based-authorization-with-firestore-nosql-and-angular-5/
   // @ 5:00mins
   public canRead(user: User): boolean {
-    const allowed = [
-      'admin',
-      'editor',
-      'subscriber',
-    ];
+    const allowed = ['admin', 'editor', 'subscriber'];
     return this.checkAuthorization(user, allowed);
   }
 
   public canEdit(user: User): boolean {
-    const allowed = [
-      'admin',
-      'editor',
-    ];
+    const allowed = ['admin', 'editor'];
     return this.checkAuthorization(user, allowed);
   }
 
   public canDelete(user: User): boolean {
-    const allowed = [ 'admin' ];
+    const allowed = ['admin'];
     return this.checkAuthorization(user, allowed);
   }
 }

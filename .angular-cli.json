@@ -124,6 +124,12 @@
       "appRoot": ""
     },
     {
+      "name": "event-type",
+      "root": "libs/event-type/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
       "name": "lsroutes",
       "root": "libs/lsroutes/src",
       "test": "../../../test.js",

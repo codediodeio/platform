@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import { map, take, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
-
 @Injectable()
 export class AdminGuard implements CanActivate {
   constructor(private auth: AuthService) {}
@@ -14,10 +13,10 @@ export class AdminGuard implements CanActivate {
       take(1),
       map(user => !!(user && user.roles.subscriber)),
       tap(isAdmin => {
-        if(!isAdmin) {
+        if (!isAdmin) {
           console.error('No Authorization');
         }
-      }),
+      })
     );
   }
 }

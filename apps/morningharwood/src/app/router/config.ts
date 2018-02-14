@@ -1,23 +1,20 @@
 import { Routes } from '@angular/router';
 
+
 export const config: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'menu'
-  },
+  // {
+  //   path: '',
+  //   pathMatch: 'full',
+  //   redirectTo: 'menu'
+  // },
   {
     path: 'admin',
-    loadChildren: './admin/module#AdminRouteModule'
+    loadChildren: './admin/admin.module#AdminRouteModule',
   },
   {
     path: 'login',
-    loadChildren: './login/module#LoginRouteModule'
-  }
-  // {
-  //   path: '**',
-  //   component: ErrorMasterComponent,
-  // },
+    loadChildren: './login/login.module#LoginRouteModule',
+  },
 ];
 
 export enum RoutesName {
