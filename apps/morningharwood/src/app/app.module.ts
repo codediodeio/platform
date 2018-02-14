@@ -19,19 +19,19 @@ import { MorningHarwoodRouterModule } from './router/router.module';
 import { CustomSerializer } from './router/state';
 
 
+export const appId = 'morningharwood-ssr';
+
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
-    CommonModule,
-    BrowserModule.withServerTransition({ appId: 'morningharwood-ssr' }),
-    NxModule.forRoot(),
-    MhFirestoreClientModule.forRoot(),
     AngularFireAuthModule,
-    RouterModule.forRoot(config, { initialNavigation: 'enabled' }),
-    MorningHarwoodRouterModule.forRoot(),
-    StoreModule.forRoot(reducers),
+    BrowserAnimationsModule,
+    BrowserModule.withServerTransition({ appId }),
+    CommonModule,
     EffectsModule.forRoot([ RouterEffects ]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    MhFirestoreClientModule.forRoot(),
+    MorningHarwoodRouterModule.forRoot(),
+    NxModule.forRoot(),
+    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
     }),
